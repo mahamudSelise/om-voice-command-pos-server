@@ -3,6 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { ProductsModule } from './modules/products/products.module';
 import { ApiResponseService } from './services/api-response/api-response.service';
 import { EventsGateway } from './gateways/events/events.gateway';
+import { CartModule } from './modules/cart/cart.module';
+import { OrderModule } from './modules/order/order.module';
 
 @Module({
   imports: [
@@ -10,6 +12,8 @@ import { EventsGateway } from './gateways/events/events.gateway';
       isGlobal: true,
     }),
     ProductsModule,
+    CartModule,
+    OrderModule,
   ],
   controllers: [],
   providers: [ApiResponseService, EventsGateway],

@@ -2,8 +2,14 @@ import { IProduct } from './product.interface';
 
 export interface IEvent {
   id: string;
-  event: 'SELECT_PRODUCT' | 'SELECT_ADDON';
-  data: any;
+  event:
+  | 'CREATE_ORDER'
+  | 'ADD_TO_CART'
+  | 'CLEAR_CART'
+  | 'SELECT_PRODUCT'
+  | 'SELECT_ADDON'
+  | 'REQUEST_ORDER';
+  data: unknown;
 }
 
 export interface ISelectProductEvent {
