@@ -56,22 +56,22 @@ export class ProductsController {
           );
         return;
       }
-
-      this.eventsGateway.broadcastMessage({
-        id: Guid.create().toString(),
-        event: 'SELECT_PRODUCT',
-        data: { product } as ISelectProductEvent,
-      });
-
-      this.eventsGateway.broadcastMessage({
-        id: Guid.create().toString(),
-        event: 'SELECT_ADDON',
-        data: {
-          product,
-          addOnIds: body.addOnIds,
-        } as ISelectProductWithAddOnEvent,
-      });
     }
+
+    this.eventsGateway.broadcastMessage({
+      id: Guid.create().toString(),
+      event: 'SELECT_PRODUCT',
+      data: { product } as ISelectProductEvent,
+    });
+
+    this.eventsGateway.broadcastMessage({
+      id: Guid.create().toString(),
+      event: 'SELECT_ADDON',
+      data: {
+        product,
+        addOnIds: body.addOnIds,
+      } as ISelectProductWithAddOnEvent,
+    });
 
     res.status(200).json('Product selected');
   }
