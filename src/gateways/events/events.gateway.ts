@@ -16,14 +16,6 @@ export class EventsGateway {
   @WebSocketServer()
   server: Server;
 
-  handleConnection() {
-    console.log('Client connected');
-  }
-
-  handleDisconnect() {
-    console.log(`Client disconnected`);
-  }
-
   @SubscribeMessage('message')
   handleMessage(@MessageBody() data: string): string {
     console.log(`Received message from client: ${data}`);
